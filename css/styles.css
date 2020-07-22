@@ -57,11 +57,11 @@ ul {
 
 header li {
   padding: 0 12px;
-  cursor: pointer;
 }
 
 i {
   transition: all 50ms ease-in-out;
+  cursor: pointer;
 }
 
 i:hover {
