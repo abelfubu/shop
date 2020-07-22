@@ -1,0 +1,400 @@
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300;400;700&display=swap');
+
+:root {
+  --primary: #232323;
+  --btn-primary: #74c69d;
+  --btn-secondary: #b7e4c7;
+  --btn-dark: #40916c;
+  --btn-danger: #d48383;
+}
+
+#backdrop {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.548);
+  z-index: 5;
+}
+
+.visible {
+  display: block;
+}
+.hidden {
+  display: none;
+}
+
+body {
+  margin: 0;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  color: var(--primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+header {
+  padding: 0 6%;
+  position: fixed;
+  width: 100vw;
+  font-size: 1.25rem;
+  transition: all 300ms ease-in-out;
+  color: white;
+  z-index: 2;
+}
+
+.white {
+  background-color: white;
+  box-shadow: 0 4px 4px #55555552;
+  color: var(--primary);
+}
+
+header,
+ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+header li {
+  padding: 0 12px;
+  cursor: pointer;
+}
+
+i {
+  transition: all 50ms ease-in-out;
+}
+
+i:hover {
+  transform: scale(1.2);
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  height: 400px;
+  align-items: center;
+}
+
+.bg-img-hero {
+  transform: rotate(90deg);
+  background-image: url('https://images.unsplash.com/photo-1446071103084-c257b5f70672?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2131&q=80');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 400px;
+  height: 100vw;
+  z-index: -2;
+  position: absolute;
+}
+
+.letter {
+  padding: 0 2%;
+  transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  color: #fff;
+  background-color: rgba(255, 0, 0, 0.486);
+  border-radius: 8px;
+  mix-blend-mode: exclusion;
+  font-weight: 500;
+  transform: scale(1.75);
+  z-index: 0;
+}
+
+.letter:nth-of-type(2) {
+  font-size: 5rem;
+}
+.letter:nth-of-type(3) {
+  font-size: 7.5rem;
+}
+.letter:nth-of-type(4) {
+  font-size: 4rem;
+}
+.letter:nth-of-type(5) {
+  font-size: 5rem;
+}
+.letter:nth-of-type(6) {
+  font-size: 6rem;
+  transform: rotate(18deg);
+  z-index: 1;
+}
+.letter:nth-of-type(7) {
+  font-size: 6.25rem;
+}
+.letter:nth-of-type(8) {
+  font-size: 7rem;
+}
+.letter:last-child {
+  font-size: 5rem;
+}
+
+/* Hover effects  */
+.letter:nth-of-type(2):hover {
+  font-size: 1.2rem;
+}
+
+.letter:nth-of-type(3):hover {
+  transform: translatex(20px);
+}
+
+.letter:nth-of-type(4):hover {
+  transform: rotate(180deg);
+  border: 2px dashed orange;
+  border-radius: 12px;
+}
+
+.letter:nth-of-type(5):hover {
+  font-size: 10rem;
+}
+
+.letter:nth-of-type(6):hover {
+  animation: 300ms linear infinite rotate;
+  color: #507c60;
+}
+
+.letter:nth-of-type(7):hover {
+  color: rgb(221, 109, 109);
+}
+
+.letter:nth-of-type(8):hover {
+  visibility: hidden;
+}
+
+.letter:nth-of-type(9):hover {
+  transform: translatey(20px);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(18deg);
+  }
+  70% {
+    transform: rotate(-20deg);
+  }
+  73% {
+    transform: rotate(44deg);
+  }
+  77% {
+    transform: translateY(10px);
+  }
+  88% {
+    transform: translatex(20px);
+  }
+  92% {
+    transform: scale(2rem);
+  }
+  100% {
+    transform: rotate(18deg);
+  }
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  margin: 32px 4%;
+  column-gap: 2em;
+}
+
+h1 {
+  text-align: center;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 400;
+  margin-bottom: 36px;
+}
+
+.shop {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0 42px;
+  grid-column-gap: 3em;
+  justify-items: center;
+}
+
+.card-product {
+  margin: 36px 0;
+}
+
+.card-product h3,
+p {
+  margin: 4px 0;
+}
+
+.card-product span {
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.card-product img {
+  width: 100%;
+
+  transition: transform 100ms ease-in;
+}
+
+.card-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.shop img:hover {
+  transform: scale(1.03);
+}
+
+aside {
+  margin-top: 32px;
+}
+
+button {
+  border: none;
+  padding: 6px 24px;
+  color: #fff;
+  border-radius: 4px;
+  margin: 8px 12px 0 0;
+  box-shadow: 0px 2px 2px 0px #0000006e;
+  outline: none;
+  transition: background-color 100ms ease-in;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+button:hover {
+  background-color: var(--btn-dark);
+}
+
+button:active {
+  box-shadow: 0px 1px 1px 0px #0000006e;
+}
+
+.primary {
+  background-color: var(--btn-primary);
+}
+
+.secondary {
+  background-color: var(--btn-secondary);
+}
+
+.danger {
+  background-color: var(--btn-danger);
+}
+
+#cart {
+  width: 50%;
+  margin: 3px auto 0;
+  position: absolute;
+  top: 200px;
+  left: 23%;
+  z-index: 10;
+  padding: 42px 8%;
+  text-align: center;
+  display: none;
+  background-color: #fff;
+  border-radius: 6px;
+}
+
+#cart .added-product:first-of-type {
+  margin-top: 32px;
+}
+
+.added-product {
+  display: grid;
+  grid-template-columns: 10% 55% 7% 6% 7% 15%;
+  margin: 8px 0;
+}
+
+.added-product .card-title {
+  justify-content: space-evenly;
+}
+
+.added-product .icons {
+  align-self: center;
+  justify-self: center;
+}
+
+#price {
+  color: inherit;
+}
+
+.added-product .icons span {
+  margin: 0 3px;
+  cursor: pointer;
+}
+
+.added-product img {
+  justify-self: center;
+  width: 60px;
+  height: 60px;
+}
+
+#total-item {
+  font-size: 1.8rem;
+}
+
+#notification {
+  background-color: rgb(255, 92, 92);
+  margin-right: -45px;
+  border-radius: 4px;
+  color: white;
+  padding: 4px 8px;
+  visibility: hidden;
+}
+
+#cart-total-price {
+  display: block;
+  font-size: 2rem;
+}
+
+@media (max-width: 1300px) {
+  .letter {
+    padding: 2%;
+  }
+  .shop {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1000px) {
+  .letter {
+    transform: scale(1.5);
+  }
+  .shop {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #cart {
+    width: 67%;
+    left: 16%;
+  }
+}
+
+@media (max-width: 750px) {
+  .letter {
+    transform: scale(1.5);
+    padding: 1.5%;
+  }
+  .shop {
+    grid-template-columns: 1fr;
+  }
+
+  #cart {
+    width: 85%;
+    left: 5%;
+  }
+}
+
+@media (max-width: 600px) {
+  .app {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  aside {
+    width: 85%;
+    order: 1;
+    margin: 32px 42px;
+  }
+  #cart {
+    width: 90%;
+    left: 5%;
+  }
+}
