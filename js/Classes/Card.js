@@ -1,4 +1,6 @@
-class Card {
+import { cart } from '../script.js';
+
+export default class Card {
   constructor(name, color, imgUrl, price) {
     this.name = name;
     this.color = color;
@@ -26,4 +28,14 @@ class Card {
     });
     document.querySelector('.shop').append(cardEl);
   };
+
+  toJSONObject() {
+    let obj = {};
+    obj.name = this.name;
+    obj.color = this.color;
+    obj.imgUrl = this.imgUrl;
+    obj.price = this.price;
+    obj.id = this.id;
+    return obj;
+  }
 }

@@ -1,4 +1,6 @@
-class Filters {
+import { shop } from '../script.js';
+
+export default class Filters {
   contructor() {
     this.filteredArray = [];
   }

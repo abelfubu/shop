@@ -1,5 +1,11 @@
+import Card from './Classes/Card.js';
+import Cart from './Classes/Cart.js';
+import { CartItem } from './Classes/CartItem.js';
+import Filters from './Classes/Filters.js';
+import Shop from './Classes/Shop.js';
+import LocalStorageManager from './utils/LocalStorageManager.js';
+
 const body = document.body;
-const appEl = body.querySelector('#app');
 const filter = body.querySelector('form button');
 const cartButton = body.querySelector('#cart-button');
 const letters = body.querySelectorAll('.letter');
@@ -51,14 +57,26 @@ const c4 = new Card(
   13.99
 );
 
-const cart = new Cart();
-const shop = new Shop();
+export const cart = new Cart();
+export const shop = new Shop();
 shop.addProduct(c1);
 shop.addProduct(c2);
 shop.addProduct(c3);
 shop.addProduct(c4);
 const filters = new Filters();
 filters.render();
+
+const renderCartLocal = () => {
+  let localAr = LocalStorageManager.getItems();
+  for (const item of localAr) {
+    cart.addOne(item.product);
+  }
+  setTimeout(() => {
+    cart.getSum();
+  }, 1000);
+};
+
+renderCartLocal();
 
 const toggleBackdrop = () => {
   backdrop.classList.toggle('hidden');
@@ -67,6 +85,7 @@ const toggleBackdrop = () => {
     cartBoxEl.style.display = 'none';
     cartOpen = false;
   }
+  LocalStorageManager.setItems(cart.addedProducts);
 };
 
 const showCartBox = () => {

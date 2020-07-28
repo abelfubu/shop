@@ -1,0 +1,21 @@
+{
+  "name": "shop",
+  "version": "1.0.0",
+  "description": "A Shop built with just HTML , CSS and javascript",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abelfubu/shop.git"
+  },
+  "author": "Abel de la Fuente",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abelfubu/shop/issues"
+  },
+  "homepage": "https://abelfubu.github.io/shop/",
+  "devDependencies": {}
+}

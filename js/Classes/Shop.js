@@ -19,3 +19,5 @@ class Shop {
     return prices;
   }
 }
+
+export default Shop;

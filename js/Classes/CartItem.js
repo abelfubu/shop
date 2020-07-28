@@ -1,10 +1,19 @@
-class CartItem {
-  constructor(product) {
-    this.product = product;
-    this.amount = 1;
+import { cart } from '../script.js';
+
+export class CartItem {
+  constructor(JSON, product) {
     this.div = document.createElement('div');
-    this.totalPrice = this.product.price;
-    this.key = Math.random();
+    if (JSON) {
+      this.product = JSON.product;
+      this.amount = JSON.amount;
+      this.totalPrice = JSON.totalPrice;
+      this.key = JSON.key;
+    } else {
+      this.product = product;
+      this.amount = 1;
+      this.totalPrice = this.product.price;
+      this.key = Math.random();
+    }
   }
 
   changeAmount(operator) {
@@ -47,5 +56,14 @@ class CartItem {
       cart.removeProduct(this.key, this.div)
     );
     cartEl.append(this.div);
+  }
+
+  toJSONObject() {
+    let obj = {};
+    obj.product = this.product;
+    obj.amount = this.amount;
+    obj.totalPrice = this.totalPrice;
+    obj.key = this.key;
+    return obj;
   }
 }

@@ -1,4 +1,7 @@
-class Cart {
+import { shop } from '../script.js';
+import LocalStorageManager from '../utils/LocalStorageManager.js';
+
+export default class Cart {
   constructor() {
     this.addedProducts = [];
     this.currentSum = 0;
@@ -20,10 +23,15 @@ class Cart {
   }
 
   addOne(product) {
-    const newItem = new CartItem(product);
-    newItem.render();
+    import('./CartItem.js').then(module => {
+      const newItem = new module.CartItem(null, product);
+      newItem.render();
+      this.addedProducts.push(newItem);
+    });
     this.notificationHandle('ADD');
-    this.addedProducts.push(newItem);
+    setTimeout(() => {
+      this.getSum();
+    }, 50);
   }
 
   getSum() {
@@ -42,7 +50,7 @@ class Cart {
     for (const product of shop.products) {
       if (product.id === id) {
         this.addOne(product);
-        this.getSum();
+        LocalStorageManager.addProduct(product);
       }
     }
   }
